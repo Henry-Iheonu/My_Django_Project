@@ -1,0 +1,9 @@
+{% extends 'jobs/employer_base.html' %}
+
+{% block title %}Employer Dashboard{% endblock %}
+
+{% block main %}
+<h2>Employer Dashboard</h2>
+<p>Manage your job listings, view applications, and connect with potential candidates.</p>
+<a href="{% url 'post_job' %}" class="btn btn-primary">Create New Job Posting</a>
+{% endblock %}

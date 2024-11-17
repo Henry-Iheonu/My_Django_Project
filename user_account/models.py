@@ -42,4 +42,4 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
 
     def _str_(self):
         return self.email
-# Create your models here.
+# Create models here.

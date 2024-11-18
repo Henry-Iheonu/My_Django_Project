@@ -4,6 +4,8 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
+from jobs.models import Job
+from django.utils.timezone import now
 
 User = get_user_model()
 
@@ -55,17 +57,30 @@ def dashboard_view(request):
     else:
         # Handle users with unrecognized roles
         return render(request, 'user_account/unknown_role.html')
-    
-@login_required
-def employer_dashboard_view(request):
-    return render(request, 'user_account/employer_dashboard.html')
 
 @login_required
 def employee_dashboard_view(request):
-    return render(request, 'user_account/employee_dashboard.html')
+    jobs = Job.objects.all()
+    context = {
+        'jobs': jobs,
+        'current_time': now(),
+    }
+    return render(request, 'user_account/employee_dashboard.html', context)
 
 
 def logout_view(request):
     logout(request)
     messages.success(request, "You have successfully logged out.")
     return redirect('login')  # Redirect to login page after logout
+
+@login_required
+def employer_dashboard_view(request):
+    # Get the logged-in employer's jobs
+    employer_jobs = Job.objects.filter(employer=request.user)
+    num_jobs_posted = employer_jobs.count()
+
+    # Pass the count to the template
+    context = {
+        'num_jobs_posted': num_jobs_posted,
+    }
+    return render(request, 'user_account/employer_dashboard.html', context)

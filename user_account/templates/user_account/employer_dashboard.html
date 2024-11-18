@@ -3,7 +3,66 @@
 {% block title %}Employer Dashboard{% endblock %}
 
 {% block main %}
-<h2>Employer Dashboard</h2>
-<p>Manage your job listings, view applications, and connect with potential candidates.</p>
-<a href="{% url 'post_job' %}" class="btn btn-primary">Create New Job Posting</a>
+<div class="container">
+    <div class="row">
+        <!-- Card 1: Number of Jobs Posted -->
+        <div class="col-md-4">
+            <div class="card text-white bg-primary mb-3">
+                <div class="card-body">
+                    <div class="d-flex align-items-center">
+                        <div>
+                            <h5 class="card-title">Jobs Posted</h5>
+                            <p class="card-text">You have posted <strong>{{ num_jobs_posted }}</strong> jobs so far.</p>
+                        </div>
+                        <div class="ms-auto">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-briefcase-fill">
+                                <path d="M0 4a2 2 0 0 1 2-2h4v1a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V2h4a2 2 0 0 1 2 2v2H0V4zM0 6h16v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6z"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 2: Applications Received -->
+        <div class="col-md-4">
+            <div class="card text-white bg-success mb-3">
+                <div class="card-body">
+                    <div class="d-flex align-items-center">
+                        <div>
+                            <h5 class="card-title">Applications Received</h5>
+                            <p class="card-text">You have received <strong>120</strong> applications.</p>
+                        </div>
+                        <div class="ms-auto">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-person-lines-fill">
+                                <path d="M11 4.5c0-1-.5-2-2-2s-2 1-2 2v.5h4v-.5zM11.5 3h-5A1.5 1.5 0 0 0 5 4.5v.5H0v1h16v-1h-5V4.5A1.5 1.5 0 0 0 11.5 3z"/>
+                                <path fill-rule="evenodd" d="M1 7h14v1H1V7zm0 2h6v1H1V9zm8 0h6v1H9V9zm-8 2h6v1H1v-1zm8 0h6v1H9v-1z"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 3: Active Job Listings -->
+        <div class="col-md-4">
+            <div class="card text-white bg-info mb-3">
+                <div class="card-body">
+                    <div class="d-flex align-items-center">
+                        <div>
+                            <h5 class="card-title">Active Job Listings</h5>
+                            <p class="card-text">You currently have <strong>5</strong> active job listings.</p>
+                        </div>
+                        <div class="ms-auto">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-list-check">
+                                <path fill-rule="evenodd" d="M1 3.5A.5.5 0 0 1 1.5 3h8a.5.5 0 0 1 0 1h-8a.5.5 0 0 1-.5-.5zM1 5.5A.5.5 0 0 1 1.5 5h8a.5.5 0 0 1 0 1h-8a.5.5 0 0 1-.5-.5zM1 7.5A.5.5 0 0 1 1.5 7h8a.5.5 0 0 1 0 1h-8a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5H8a.5.5 0 0 1 0 1H1.5a.5.5 0 0 1-.5-.5zM0 12.5A.5.5 0 0 1 .5 12h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z"/>
+                                <path d="M15.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L12.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

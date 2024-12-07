@@ -84,3 +84,5 @@ def employer_dashboard_view(request):
         'num_jobs_posted': num_jobs_posted,
     }
     return render(request, 'user_account/employer_dashboard.html', context)
+
+jobs = Job.objects.all().order_by('-posted_at')

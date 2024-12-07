@@ -60,7 +60,7 @@ def dashboard_view(request):
 
 @login_required
 def employee_dashboard_view(request):
-    jobs = Job.objects.all()
+    jobs = Job.objects.all().order_by('posted_at')
     context = {
         'jobs': jobs,
         'current_time': now(),
@@ -85,4 +85,4 @@ def employer_dashboard_view(request):
     }
     return render(request, 'user_account/employer_dashboard.html', context)
 
-jobs = Job.objects.all().order_by('-posted_at')
+
